@@ -13,6 +13,7 @@ pub struct PriceRuleStackType {
 
     /// Required. List of price rules that are part of the stack.
     #[validate(length(min = 1, max = 8))]
+    #[serde(rename = "priceRule")]
     pub price_rules: Vec<PriceRuleType>,
 
     /// Custom data from the Charging Station.

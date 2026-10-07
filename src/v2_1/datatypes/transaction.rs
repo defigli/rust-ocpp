@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use validator::Validate;
 
 use super::custom_data::CustomDataType;
-use crate::v2_1::enumerations::{ChargingStateEnumType, ReasonEnumType};
+use crate::v2_1::enumerations::{ChargingStateEnumType, OperationModeEnumType, ReasonEnumType};
 
 /// Transaction
 /// urn:x-oca:ocpp:uid:2:233318
@@ -33,6 +33,20 @@ pub struct TransactionType {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub remote_start_id: Option<i32>,
 
+    /// Optional. Charging operation mode of the transaction.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub operation_mode: Option<OperationModeEnumType>,
+
+    /// Optional. Tariff identifier applied to the transaction.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(length(max = 60))]
+    pub tariff_id: Option<String>,
+
+    /// Optional. Transaction limits.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(nested)]
+    pub transaction_limit: Option<super::transaction_limit::TransactionLimitType>,
+
     /// Custom data from the Charging Station.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[validate(nested)]
@@ -56,6 +70,9 @@ impl TransactionType {
             time_spent_charging: None,
             stopped_reason: None,
             remote_start_id: None,
+            operation_mode: None,
+            tariff_id: None,
+            transaction_limit: None,
             custom_data: None,
         }
     }

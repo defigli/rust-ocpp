@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use validator::Validate;
 
 use crate::v2_1::{
-    datatypes::{CustomDataType, MessageContentType, StatusInfoType},
+    datatypes::{CustomDataType, StatusInfoType, TariffType},
     enumerations::{DayOfWeekEnumType, EvseKindEnumType, TariffChangeStatusEnumType},
 };
 
@@ -159,14 +159,12 @@ pub struct TariffEnergyPriceType {
 #[serde(rename_all = "camelCase")]
 pub struct ChangeTransactionTariffRequest {
     /// Required. Transaction Id for which the tariff needs to be changed.
+    #[validate(length(max = 36))]
     pub transaction_id: String,
 
     /// Required. The new tariff that should be applied.
-    pub tariff_id: String,
-
-    /// Optional. Message content to be displayed to the user.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub message_content: Option<MessageContentType>,
+    #[validate(nested)]
+    pub tariff: TariffType,
 
     /// Optional. Custom data from the Charging Station.
     #[serde(skip_serializing_if = "Option::is_none")]

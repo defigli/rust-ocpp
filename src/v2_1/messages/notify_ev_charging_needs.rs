@@ -71,6 +71,14 @@ pub struct ChargingNeedsType {
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Validate)]
 #[serde(rename_all = "camelCase")]
 pub struct NotifyEVChargingNeedsRequest {
+    /// Optional. Timestamp associated with the charging-needs report.
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        with = "datetime_rfc3339::option"
+    )]
+    pub timestamp: Option<DateTime<Utc>>,
+
     /// Optional. Contains the maximum schedule tuples the car supports per schedule.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub max_schedule_tuples: Option<i32>,

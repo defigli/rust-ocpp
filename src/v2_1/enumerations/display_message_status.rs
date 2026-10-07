@@ -1,9 +1,10 @@
 use serde::{Deserialize, Serialize};
 
 /// This indicates whether the Charging Station is able to display the message.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum DisplayMessageStatusEnumType {
     #[serde(rename = "Accepted")]
+    #[default]
     Accepted,
     #[serde(rename = "NotSupportedMessageFormat")]
     NotSupportedMessageFormat,
@@ -17,10 +18,4 @@ pub enum DisplayMessageStatusEnumType {
     UnknownTransaction,
     #[serde(rename = "LanguageNotSupported")]
     LanguageNotSupported,
-}
-
-impl Default for DisplayMessageStatusEnumType {
-    fn default() -> Self {
-        Self::Accepted
-    }
 }

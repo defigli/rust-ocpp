@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 /// This contains the progress status of the firmware installation.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum FirmwareStatusEnumType {
     #[serde(rename = "Downloaded")]
     Downloaded,
@@ -14,6 +14,7 @@ pub enum FirmwareStatusEnumType {
     #[serde(rename = "DownloadPaused")]
     DownloadPaused,
     #[serde(rename = "Idle")]
+    #[default]
     Idle,
     #[serde(rename = "InstallationFailed")]
     InstallationFailed,
@@ -31,10 +32,4 @@ pub enum FirmwareStatusEnumType {
     InvalidSignature,
     #[serde(rename = "SignatureVerified")]
     SignatureVerified,
-}
-
-impl Default for FirmwareStatusEnumType {
-    fn default() -> Self {
-        Self::Idle
-    }
 }

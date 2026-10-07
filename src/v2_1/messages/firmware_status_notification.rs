@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use validator::Validate;
 
-use crate::v2_1::datatypes::CustomDataType;
+use crate::v2_1::datatypes::{CustomDataType, StatusInfoType};
 use crate::v2_1::enumerations::FirmwareStatusEnumType;
 
 /// Request to notify the CSMS of the status of a firmware update.
@@ -17,6 +17,11 @@ pub struct FirmwareStatusNotificationRequest {
     /// update ongoing.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub request_id: Option<i32>,
+
+    /// Optional. Additional information about the firmware status.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(nested)]
+    pub status_info: Option<StatusInfoType>,
 
     /// Optional. Custom data from the Charging Station.
     #[serde(skip_serializing_if = "Option::is_none")]

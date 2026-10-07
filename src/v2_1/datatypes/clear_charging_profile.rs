@@ -197,6 +197,12 @@ impl ClearChargingProfileType {
     }
 }
 
+impl Default for ClearChargingProfileType {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -6,4 +6,5 @@ pub enum LocationEnumType {
     Inlet,
     #[default]
     Outlet,
+    Upstream,
 }

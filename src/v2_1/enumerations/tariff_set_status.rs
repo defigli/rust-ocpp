@@ -5,6 +5,7 @@ pub enum TariffSetStatusEnumType {
     Accepted,
     #[serde(rename = "Rejected")]
     Rejected,
-    #[serde(rename = "InvalidId")]
-    InvalidId,
+    TooManyElements,
+    ConditionNotSupported,
+    DuplicateTariffId,
 }

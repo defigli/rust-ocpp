@@ -1,18 +1,13 @@
 use serde::{Deserialize, Serialize};
 
 /// Charging Station indicates if installation was successful.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum InstallCertificateStatusEnumType {
     #[serde(rename = "Accepted")]
+    #[default]
     Accepted,
     #[serde(rename = "Rejected")]
     Rejected,
     #[serde(rename = "Failed")]
     Failed,
-}
-
-impl Default for InstallCertificateStatusEnumType {
-    fn default() -> Self {
-        Self::Accepted
-    }
 }

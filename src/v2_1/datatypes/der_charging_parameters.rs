@@ -21,6 +21,7 @@ pub struct DERChargingParametersType {
     /// DER control functions supported by EV.
     /// ISO 15118-20: DER_BPT_AC_CPDReqEnergyTransferModeType:DERControlFunctions (bitmap)
     #[validate(length(min = 1))]
+    #[serde(rename = "evSupportedDERControl")]
     pub ev_supported_der_control: Vec<DERControlEnumType>,
 
     /// Rated maximum injected active power by EV, at specified over-excited power factor (overExcitedPowerFactor).
@@ -99,6 +100,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxChargeApparentPower_L2")]
     pub max_charge_apparent_power_l2: Option<Decimal>,
 
     /// Rated maximum absorbed apparent power on phase L3, defined by min(EV, EVSE) in va.
@@ -109,6 +111,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxChargeApparentPower_L3")]
     pub max_charge_apparent_power_l3: Option<Decimal>,
 
     /// Rated maximum injected apparent power, defined by min(EV, EVSE) in va.
@@ -131,6 +134,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxDischargeApparentPower_L2")]
     pub max_discharge_apparent_power_l2: Option<Decimal>,
 
     /// Rated maximum injected apparent power on phase L3, defined by min(EV, EVSE) in va.
@@ -141,6 +145,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxDischargeApparentPower_L3")]
     pub max_discharge_apparent_power_l3: Option<Decimal>,
 
     /// Rated maximum absorbed reactive power, defined by min(EV, EVSE), in vars.
@@ -163,6 +168,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxChargeReactivePower_L2")]
     pub max_charge_reactive_power_l2: Option<Decimal>,
 
     /// Rated maximum absorbed reactive power, defined by min(EV, EVSE), in vars on phase L3.
@@ -173,6 +179,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxChargeReactivePower_L3")]
     pub max_charge_reactive_power_l3: Option<Decimal>,
 
     /// Rated minimum absorbed reactive power, defined by max(EV, EVSE), in vars.
@@ -193,6 +200,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minChargeReactivePower_L2")]
     pub min_charge_reactive_power_l2: Option<Decimal>,
 
     /// Rated minimum absorbed reactive power, defined by max(EV, EVSE), in vars on phase L3.
@@ -202,6 +210,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minChargeReactivePower_L3")]
     pub min_charge_reactive_power_l3: Option<Decimal>,
 
     /// Rated maximum injected reactive power, defined by min(EV, EVSE), in vars.
@@ -224,6 +233,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxDischargeReactivePower_L2")]
     pub max_discharge_reactive_power_l2: Option<Decimal>,
 
     /// Rated maximum injected reactive power, defined by min(EV, EVSE), in vars on phase L3.
@@ -234,6 +244,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxDischargeReactivePower_L3")]
     pub max_discharge_reactive_power_l3: Option<Decimal>,
 
     /// Rated minimum injected reactive power, defined by max(EV, EVSE), in vars.
@@ -254,6 +265,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minDischargeReactivePower_L2")]
     pub min_discharge_reactive_power_l2: Option<Decimal>,
 
     /// Rated minimum injected reactive power, defined by max(EV, EVSE), in var on phase L3.
@@ -263,6 +275,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minDischargeReactivePower_L3")]
     pub min_discharge_reactive_power_l3: Option<Decimal>,
 
     /// Line voltage supported by EVSE and EV.
@@ -354,6 +367,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "evMaximumLevel1DCInjection")]
     pub ev_maximum_level1_dc_injection: Option<Decimal>,
 
     /// Maximum allowed duration of DC injection at level 1 charging.
@@ -363,6 +377,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "evDurationLevel1DCInjection")]
     pub ev_duration_level1_dc_injection: Option<Decimal>,
 
     /// Maximum injected DC current allowed at level 2 charging.
@@ -372,6 +387,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "evMaximumLevel2DCInjection")]
     pub ev_maximum_level2_dc_injection: Option<Decimal>,
 
     /// Maximum allowed duration of DC injection at level 2 charging.
@@ -381,6 +397,7 @@ pub struct DERChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "evDurationLevel2DCInjection")]
     pub ev_duration_level2_dc_injection: Option<Decimal>,
 
     /// Measure of the susceptibility of the circuit to reactance, in Siemens (S).

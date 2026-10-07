@@ -1,4 +1,4 @@
-use crate::v2_1::datatypes::status_info::StatusInfoType;
+use crate::v2_1::datatypes::{custom_data::CustomDataType, status_info::StatusInfoType};
 use crate::v2_1::enumerations::generic_status::GenericStatusEnumType;
 
 /// This contains the field definition of the PublishFirmwareRequest PDU sent by the CSMS to the Local Controller.
@@ -30,6 +30,10 @@ pub struct PublishFirmwareRequest {
     /// between attempts.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub retry_interval: Option<i32>,
+
+    /// Optional. Vendor-specific data.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub custom_data: Option<CustomDataType>,
 }
 
 /// This contains the field definition of the PublishFirmwareResponse PDU sent by the Local Controller to the CSMS in response to a PublishFirmwareRequest.
@@ -42,4 +46,8 @@ pub struct PublishFirmwareResponse {
     /// Element providing more information about the status.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub status_info: Option<StatusInfoType>,
+
+    /// Optional. Vendor-specific data.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub custom_data: Option<CustomDataType>,
 }

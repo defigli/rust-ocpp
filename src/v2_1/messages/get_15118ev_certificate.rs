@@ -34,7 +34,7 @@ pub struct Get15118EVCertificateRequest {
     /// Optional. Absent during ISO 15118-2 session. Optional during ISO 15118-20 session.
     /// List of EMAIDs for which contract certificates must be requested first, in case
     /// there are more certificates than allowed by maximumContractCertificateChains.
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "prioritizedEMAIDs", skip_serializing_if = "Option::is_none")]
     #[validate(length(min = 1, max = 8))]
     pub prioritized_emaids: Option<Vec<String>>,
 

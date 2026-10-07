@@ -11,6 +11,7 @@ use super::{custom_data::CustomDataType, fixed_pf::FixedPFType};
 pub struct FixedPFGetType {
     /// The fixed power factor settings.
     #[validate(nested)]
+    #[serde(rename = "fixedPF")]
     pub fixed_pf: FixedPFType,
 
     /// Id of the setting.

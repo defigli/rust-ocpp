@@ -28,6 +28,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minChargePower_L2")]
     pub min_charge_power_l2: Option<Decimal>,
 
     /// Minimum charge power on phase L3 in W, defined by max(EV, EVSE).
@@ -38,6 +39,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minChargePower_L3")]
     pub min_charge_power_l3: Option<Decimal>,
 
     /// Maximum charge (absorbed) power in W, defined by min(EV, EVSE) at unity power factor.
@@ -61,6 +63,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxChargePower_L2")]
     pub max_charge_power_l2: Option<Decimal>,
 
     /// Maximum charge power on phase L3 in W, defined by min(EV, EVSE)
@@ -71,6 +74,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxChargePower_L3")]
     pub max_charge_power_l3: Option<Decimal>,
 
     /// Minimum discharge (injected) power in W, defined by max(EV, EVSE) at unity power factor. Value >= 0.
@@ -94,6 +98,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minDischargePower_L2")]
     pub min_discharge_power_l2: Option<Decimal>,
 
     /// Minimum discharge power on phase L3 in W, defined by max(EV, EVSE). Value >= 0.
@@ -104,6 +109,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "minDischargePower_L3")]
     pub min_discharge_power_l3: Option<Decimal>,
 
     /// Maximum discharge (injected) power in W, defined by min(EV, EVSE) at unity power factor. Value >= 0.
@@ -125,6 +131,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxDischargePower_L2")]
     pub max_discharge_power_l2: Option<Decimal>,
 
     /// Maximum discharge power on phase L3 in W, defined by min(EV, EVSE). Value >= 0.
@@ -135,6 +142,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "maxDischargePower_L3")]
     pub max_discharge_power_l3: Option<Decimal>,
 
     /// Minimum charge current in A, defined by max(EV, EVSE)
@@ -236,6 +244,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "evMinV2XEnergyRequest")]
     pub ev_min_v2x_energy_request: Option<Decimal>,
 
     /// Energy (in Wh) to maximum state of charge for cycling (V2X) activity.
@@ -247,6 +256,7 @@ pub struct V2XChargingParametersType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "evMaxV2XEnergyRequest")]
     pub ev_max_v2x_energy_request: Option<Decimal>,
 
     /// Target state of charge at departure as percentage.

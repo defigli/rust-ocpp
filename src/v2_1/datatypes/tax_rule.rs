@@ -9,6 +9,7 @@ use super::{custom_data::CustomDataType, rational_number::RationalNumberType};
 pub struct TaxRuleType {
     /// Required. Id for the tax rule.
     #[validate(range(min = 0))]
+    #[serde(rename = "taxRuleID")]
     pub tax_rule_id: i32,
 
     /// Optional. Human readable string to identify the tax rule.

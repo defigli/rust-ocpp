@@ -5,6 +5,8 @@ pub enum TariffChangeStatusEnumType {
     Accepted,
     #[serde(rename = "Rejected")]
     Rejected,
-    #[serde(rename = "InvalidId")]
-    InvalidId,
+    TooManyElements,
+    ConditionNotSupported,
+    TxNotFound,
+    NoCurrencyChange,
 }

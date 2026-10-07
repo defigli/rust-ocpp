@@ -1,16 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 /// Indicates if the Charging Station has Display Messages that match the request criteria in the GetDisplayMessagesRequest.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum GetDisplayMessagesStatusEnumType {
     #[serde(rename = "Accepted")]
+    #[default]
     Accepted,
     #[serde(rename = "Unknown")]
     Unknown,
-}
-
-impl Default for GetDisplayMessagesStatusEnumType {
-    fn default() -> Self {
-        Self::Accepted
-    }
 }

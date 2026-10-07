@@ -1,9 +1,10 @@
 use serde::{Deserialize, Serialize};
 
 /// Type of cost dimension: energy, power, time, etc.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum CostDimensionEnumType {
     #[serde(rename = "Energy")]
+    #[default]
     Energy,
     #[serde(rename = "MaxCurrent")]
     MaxCurrent,
@@ -17,10 +18,4 @@ pub enum CostDimensionEnumType {
     IdleTime,
     #[serde(rename = "ChargingTime")]
     ChargingTime,
-}
-
-impl Default for CostDimensionEnumType {
-    fn default() -> Self {
-        Self::Energy
-    }
 }

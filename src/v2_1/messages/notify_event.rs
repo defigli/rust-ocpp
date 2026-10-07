@@ -14,9 +14,28 @@ pub struct EventDataType {
     #[validate(length(max = 2500))]
     pub actual_value: String,
 
+    /// Optional. Technical code for this event.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(length(max = 50))]
+    pub tech_code: Option<String>,
+
+    /// Optional. Technical information about this event.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(length(max = 500))]
+    pub tech_info: Option<String>,
+
+    /// Optional. Indicates whether this event clears a previous event.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cleared: Option<bool>,
+
     /// Required. Identifies the event. This field can be referred to as a cause by other events.
     #[validate(range(min = 0))]
     pub event_id: i32,
+
+    /// Optional. Identifier of the event that caused this event.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(range(min = 0))]
+    pub cause: Option<i32>,
 
     /// Required. Timestamp of when the event occurred.
     #[serde(with = "datetime_rfc3339")]
@@ -38,7 +57,13 @@ pub struct EventDataType {
     pub variable_monitoring_id: Option<i32>,
 
     /// Required. Type of notification of the event.
+    #[serde(rename = "eventNotificationType")]
     pub event_notification: EventNotificationEnumType,
+
+    /// Optional. Severity of the event.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(range(min = 0))]
+    pub severity: Option<i32>,
 
     /// Required. The variable for which this event applies.
     pub variable: VariableType,

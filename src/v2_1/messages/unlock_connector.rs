@@ -1,6 +1,7 @@
 use super::{CustomData, StatusInfo, UnlockStatusEnum};
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq)]
+#[serde(rename_all = "camelCase")]
 pub struct UnlockConnectorRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_data: Option<CustomData>,
@@ -9,6 +10,7 @@ pub struct UnlockConnectorRequest {
 }
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq)]
+#[serde(rename_all = "camelCase")]
 pub struct UnlockConnectorResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_data: Option<CustomData>,

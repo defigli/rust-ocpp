@@ -251,6 +251,12 @@ impl HysteresisType {
     }
 }
 
+impl Default for HysteresisType {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
