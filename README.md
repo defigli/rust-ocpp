@@ -4,11 +4,10 @@
 [![workflow](https://img.shields.io/github/actions/workflow/status/codelabsab/rust-ocpp/rust.yml)](https://github.com/codelabsab/rust-ocpp/actions)
 [![codecov](https://codecov.io/gh/codelabsab/rust-ocpp/branch/main/graph/badge.svg?token=23C458RC3S)](https://codecov.io/gh/codelabsab/rust-ocpp)
 
-The `rust-ocpp` libs implements the Open Charge Point Protocol
+The `rust-ocpp` library implements the Open Charge Point Protocol
 used in charging stations. You can read more on the official [Open Charge Alliance](https://www.openchargealliance.org/) website.
 
-OCPP versions v1.6 and v2.0.1 are implemented and validated using the official json schemas from Open Charge Alliance. Work has begun on
-providing support for v2.1 (WIP). For official and up-to-date documentation please visit https://openchargealliance.org/download-ocpp/.
+OCPP versions v1.6, v2.0.1, and v2.1 are implemented and validated using the official JSON schemas from Open Charge Alliance. For official and up-to-date documentation please visit https://openchargealliance.org/download-ocpp/.
 
 You can find the tests in `schema_validation.rs` for all supported versions.
 
@@ -31,7 +30,7 @@ To use a specific version, specify it with a feature flag:
 [dependencies]
 rust-ocpp = { version = "2.0", features = ["v1_6"] }  # For OCPP 1.6
 rust-ocpp = { version = "2.0", features = ["v2_0_1"] }  # For OCPP 2.0.1
-rust-ocpp = { version = "2.0", features = ["wip_v2_1"] }  # For OCPP 2.1 (WIP)
+rust-ocpp = { version = "2.0", features = ["v2_1"] }  # For OCPP 2.1
 ```
 
 You can also use multiple versions:
@@ -94,12 +93,10 @@ Once you have Rust and Cargo installed, you can build the library using the foll
    cargo build --features v2_0_1
    ```
 
-   To build `wip_v2_1`:
-
-   > Note that 2.1 support remains a work in progress at this stage.
+   To build `v2_1`:
 
    ```bash
-   cargo build --features wip_v2_1
+   cargo build --features v2_1
    ```
 
 6. (Optional) Build for release:
@@ -138,7 +135,7 @@ To run the tests for a specific version, use the appropriate feature flag:
 ```bash
 cargo test --features v1_6      # For OCPP 1.6 tests
 cargo test --features v2_0_1    # For OCPP 2.0.1 tests
-cargo test --features wip_v2_1 # For OCPP 2.1 tests
+cargo test --features v2_1 # For OCPP 2.1 tests
 ```
 
 To run all tests for all versions:

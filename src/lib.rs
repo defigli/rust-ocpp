@@ -5,7 +5,7 @@
 //!
 //! More Info on Open Charge Alliance can be found here: [Open Charge Alliance](https://www.openchargealliance.org/)
 //!
-//! It aims to implement the `ocpp 1.6` and `ocpp 2.0.1` protocols.
+//! It aims to implement the `ocpp 1.6`, `ocpp 2.0.1`, and `ocpp 2.1` protocols.
 //!
 //! # v1_6
 //! The [v1_6](v1_6) module contains the `ocpp 1.6` implementation
@@ -19,5 +19,5 @@ pub mod tests;
 pub mod v1_6;
 #[cfg(feature = "v2_0_1")]
 pub mod v2_0_1;
-#[cfg(feature = "wip_v2_1")]
+#[cfg(feature = "v2_1")]
 pub mod v2_1;
