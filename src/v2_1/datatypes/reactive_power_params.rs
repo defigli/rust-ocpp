@@ -16,6 +16,7 @@ pub struct ReactivePowerParamsType {
     pub v_ref: Option<Decimal>,
 
     /// Only for VoltVar: Enable/disable autonomous VRef adjustment
+    #[serde(rename = "autonomousVRefEnable")]
     pub autonomous_vref_enable: Option<bool>,
 
     /// Only for VoltVar: Adjustment range for VRef time constant
@@ -24,6 +25,7 @@ pub struct ReactivePowerParamsType {
         skip_serializing_if = "Option::is_none",
         default
     )]
+    #[serde(rename = "autonomousVRefTimeConstant")]
     pub autonomous_vref_time_constant: Option<Decimal>,
 
     /// Custom data from the Charging Station.
@@ -196,6 +198,12 @@ impl ReactivePowerParamsType {
     pub fn set_custom_data(&mut self, custom_data: Option<CustomDataType>) -> &mut Self {
         self.custom_data = custom_data;
         self
+    }
+}
+
+impl Default for ReactivePowerParamsType {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

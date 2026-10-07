@@ -18,6 +18,15 @@ pub struct NotifyEVChargingScheduleRequest {
     #[validate(range(min = 1))]
     pub evse_id: i32,
 
+    /// Optional. Selected charging schedule identifier.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(range(min = 0))]
+    pub selected_charging_schedule_id: Option<i32>,
+
+    /// Optional. Whether the station accepts power tolerance in the schedule.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub power_tolerance_acceptance: Option<bool>,
+
     /// Required. Charging schedule structure defines a list of charging periods.
     pub charging_schedule: ChargingScheduleType,
 

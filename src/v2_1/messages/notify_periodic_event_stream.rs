@@ -45,12 +45,3 @@ pub struct NotifyPeriodicEventStreamRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_data: Option<CustomDataType>,
 }
-
-/// Response to a NotifyPeriodicEventStreamRequest. This message has no fields.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Validate)]
-#[serde(rename_all = "camelCase")]
-pub struct NotifyPeriodicEventStreamResponse {
-    /// Optional. Custom data specific to this class.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub custom_data: Option<CustomDataType>,
-}

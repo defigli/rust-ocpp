@@ -214,6 +214,12 @@ impl VoltageParamsType {
     }
 }
 
+impl Default for VoltageParamsType {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

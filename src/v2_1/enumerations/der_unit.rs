@@ -1,9 +1,10 @@
 use serde::{Deserialize, Serialize};
 
 /// Unit of the Y-axis of DER curve
-#[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
+#[derive(Debug, Clone, PartialEq, Deserialize, Serialize, Default)]
 pub enum DERUnitEnumType {
     #[serde(rename = "Not_Applicable")]
+    #[default]
     NotApplicable,
     #[serde(rename = "PctMaxW")]
     PctMaxW,
@@ -15,10 +16,4 @@ pub enum DERUnitEnumType {
     PctVarAvail,
     #[serde(rename = "PctEffectiveV")]
     PctEffectiveV,
-}
-
-impl Default for DERUnitEnumType {
-    fn default() -> Self {
-        Self::NotApplicable
-    }
 }

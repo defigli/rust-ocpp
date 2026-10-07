@@ -1,6 +1,7 @@
 use super::{CustomData, UnpublishFirmwareStatusEnum};
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq)]
+#[serde(rename_all = "camelCase")]
 pub struct UnpublishFirmwareRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_data: Option<CustomData>,
@@ -8,6 +9,7 @@ pub struct UnpublishFirmwareRequest {
 }
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq)]
+#[serde(rename_all = "camelCase")]
 pub struct UnpublishFirmwareResponse {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_data: Option<CustomData>,

@@ -175,6 +175,12 @@ impl TransactionLimitType {
     }
 }
 
+impl Default for TransactionLimitType {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

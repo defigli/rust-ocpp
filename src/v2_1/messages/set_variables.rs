@@ -6,17 +6,13 @@ use crate::v2_1::datatypes::{ComponentType, CustomDataType, StatusInfoType, Vari
 /// Type of attribute: Actual, Target, MinSet, MaxSet. Default is Actual when omitted.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+#[derive(Default)]
 pub enum AttributeEnumType {
+    #[default]
     Actual,
     Target,
     MinSet,
     MaxSet,
-}
-
-impl Default for AttributeEnumType {
-    fn default() -> Self {
-        Self::Actual
-    }
 }
 
 /// Result status of setting the variable.

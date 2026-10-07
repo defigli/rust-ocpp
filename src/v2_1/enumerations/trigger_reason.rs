@@ -9,6 +9,8 @@ pub enum TriggerReasonEnumType {
     ChargingRateChanged,
     #[serde(rename = "ChargingStateChanged")]
     ChargingStateChanged,
+    #[serde(rename = "CostLimitReached")]
+    CostLimitReached,
     #[serde(rename = "Deauthorized")]
     Deauthorized,
     #[serde(rename = "EnergyLimitReached")]
@@ -17,10 +19,14 @@ pub enum TriggerReasonEnumType {
     EVCommunicationLost,
     #[serde(rename = "EVConnectTimeout")]
     EVConnectTimeout,
+    #[serde(rename = "LimitSet")]
+    LimitSet,
     #[serde(rename = "MeterValueClock")]
     MeterValueClock,
     #[serde(rename = "MeterValuePeriodic")]
     MeterValuePeriodic,
+    #[serde(rename = "OperationModeChanged")]
+    OperationModeChanged,
     #[serde(rename = "TimeLimitReached")]
     TimeLimitReached,
     #[serde(rename = "Trigger")]
@@ -43,4 +49,14 @@ pub enum TriggerReasonEnumType {
     SignedDataReceived,
     #[serde(rename = "ResetCommand")]
     ResetCommand,
+    #[serde(rename = "RunningCost")]
+    RunningCost,
+    #[serde(rename = "SoCLimitReached")]
+    SoCLimitReached,
+    #[serde(rename = "TariffChanged")]
+    TariffChanged,
+    #[serde(rename = "TariffNotAccepted")]
+    TariffNotAccepted,
+    #[serde(rename = "TxResumed")]
+    TxResumed,
 }

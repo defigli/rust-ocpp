@@ -1,9 +1,10 @@
 use serde::{Deserialize, Serialize};
 
 /// This indicates the success or failure of the data transfer.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum DataTransferStatusEnumType {
     #[serde(rename = "Accepted")]
+    #[default]
     Accepted,
     #[serde(rename = "Rejected")]
     Rejected,
@@ -11,10 +12,4 @@ pub enum DataTransferStatusEnumType {
     UnknownMessageId,
     #[serde(rename = "UnknownVendorId")]
     UnknownVendorId,
-}
-
-impl Default for DataTransferStatusEnumType {
-    fn default() -> Self {
-        Self::Accepted
-    }
 }

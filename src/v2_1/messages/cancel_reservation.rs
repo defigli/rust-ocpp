@@ -8,10 +8,10 @@ use validator::Validate;
 ///
 /// This message is sent by the CSMS to the Charging Station to cancel an existing reservation.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Validate)]
+#[serde(rename_all = "camelCase")]
 pub struct CancelReservationRequest {
     /// Id of the reservation to cancel.
     #[validate(range(min = 0))]
-    #[serde(rename = "reservationId")]
     pub reservation_id: i32,
 
     /// Optional custom data

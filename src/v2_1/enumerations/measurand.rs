@@ -1,4 +1,4 @@
-#[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq)]
+#[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq, Default)]
 pub enum MeasurandEnumType {
     #[serde(rename = "Current.Export")]
     CurrentExport,
@@ -41,6 +41,7 @@ pub enum MeasurandEnumType {
     #[serde(rename = "Energy.Active.Import.Interval")]
     EnergyActiveImportInterval,
     #[serde(rename = "Energy.Active.Import.Register")]
+    #[default]
     EnergyActiveImportRegister,
     #[serde(rename = "Energy.Active.Import.CableLoss")]
     EnergyActiveImportCableLoss,
@@ -112,10 +113,4 @@ pub enum MeasurandEnumType {
     VoltageMinimum,
     #[serde(rename = "Voltage.Maximum")]
     VoltageMaximum,
-}
-
-impl Default for MeasurandEnumType {
-    fn default() -> Self {
-        Self::EnergyActiveImportRegister
-    }
 }

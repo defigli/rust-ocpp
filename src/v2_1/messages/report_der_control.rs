@@ -34,11 +34,13 @@ pub struct ReportDERControlRequest {
     /// Optional. Array of fixed power factor settings for absorbing reactive power.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[validate(length(min = 1, max = 24))]
+    #[serde(rename = "fixedPFAbsorb")]
     pub fixed_pf_absorb: Option<Vec<FixedPFGetType>>,
 
     /// Optional. Array of fixed power factor settings for injecting reactive power.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[validate(length(min = 1, max = 24))]
+    #[serde(rename = "fixedPFInject")]
     pub fixed_pf_inject: Option<Vec<FixedPFGetType>>,
 
     /// Optional. Array of fixed var settings.

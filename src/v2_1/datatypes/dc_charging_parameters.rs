@@ -52,6 +52,11 @@ pub struct DCChargingParametersType {
     #[validate(range(min = 0, max = 100))]
     pub full_so_c: Option<i32>,
 
+    /// State of charge at which the EV battery is considered bulk charged.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    #[validate(range(min = 0, max = 100))]
+    pub bulk_so_c: Option<i32>,
+
     /// Custom data from the Charging Station.
     #[serde(skip_serializing_if = "Option::is_none")]
     #[validate(nested)]
@@ -78,6 +83,7 @@ impl DCChargingParametersType {
             energy_amount: None,
             state_of_charge: None,
             full_so_c: None,
+            bulk_so_c: None,
             custom_data: None,
         }
     }
@@ -342,7 +348,7 @@ impl DCChargingParametersType {
     /// # Arguments
     ///
     /// * `full_so_c` - Percentage of SoC at which the EV considers the battery fully charged (0-100),
-    ///                 or None to clear
+    ///   or None to clear
     ///
     /// # Returns
     ///

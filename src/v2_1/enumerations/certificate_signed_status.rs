@@ -1,16 +1,11 @@
 use serde::{Deserialize, Serialize};
 
 /// Returns whether certificate signing has been accepted, otherwise rejected.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum CertificateSignedStatusEnumType {
     #[serde(rename = "Accepted")]
+    #[default]
     Accepted,
     #[serde(rename = "Rejected")]
     Rejected,
-}
-
-impl Default for CertificateSignedStatusEnumType {
-    fn default() -> Self {
-        Self::Accepted
-    }
 }

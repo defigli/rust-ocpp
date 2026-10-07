@@ -13,6 +13,7 @@ pub struct EVAbsolutePriceScheduleEntryType {
 
     /// Price rules for different power ranges.
     #[validate(length(min = 1, max = 8))]
+    #[serde(rename = "evPriceRule")]
     pub ev_price_rules: Vec<EVPriceRuleType>,
 
     /// Custom data from the Charging Station.

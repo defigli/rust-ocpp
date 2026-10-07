@@ -17,10 +17,12 @@ pub struct ChargingScheduleUpdateType {
 
     /// *(2.1)* Charging rate limit on phase L2 in the applicable _chargingRateUnit_.
     #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "limit_L2")]
     pub limit_l2: Option<f32>,
 
     /// *(2.1)* Charging rate limit on phase L3 in the applicable _chargingRateUnit_.
     #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "limit_L3")]
     pub limit_l3: Option<f32>,
 
     /// *(2.1)* Limit in _chargingRateUnit_ that the EV is allowed to discharge with. Note, these are negative values in order to be consistent with _setpoint_, which can be positive and negative.  +\r\nFor AC this field represents the sum of all phases, unless values are provided for L2 and L3, in which case this field represents phase L1.
@@ -612,6 +614,12 @@ impl ChargingScheduleUpdateType {
     pub fn with_setpoint_reactive_l3(mut self, setpoint_reactive_l3: Decimal) -> Self {
         self.setpoint_reactive_l3 = Some(setpoint_reactive_l3);
         self
+    }
+}
+
+impl Default for ChargingScheduleUpdateType {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

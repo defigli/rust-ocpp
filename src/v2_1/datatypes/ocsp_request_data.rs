@@ -25,6 +25,7 @@ pub struct OCSPRequestDataType {
 
     /// Required. This contains the responder URL (Case insensitive).
     #[validate(length(max = 2000))]
+    #[serde(rename = "responderURL")]
     pub responder_url: String,
 
     /// Custom data from the Charging Station.

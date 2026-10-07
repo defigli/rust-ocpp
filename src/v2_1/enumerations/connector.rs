@@ -193,8 +193,8 @@ impl From<String> for ConnectorEnumType {
     }
 }
 
-impl ToString for ConnectorEnumType {
-    fn to_string(&self) -> String {
-        self.as_str().to_string()
+impl std::fmt::Display for ConnectorEnumType {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter.write_str(self.as_str())
     }
 }

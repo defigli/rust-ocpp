@@ -1,9 +1,10 @@
 use serde::{Deserialize, Serialize};
 
 /// This indicates whether the Charging Station is able to accept this request.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
 pub enum GenericDeviceModelStatusEnumType {
     #[serde(rename = "Accepted")]
+    #[default]
     Accepted,
     #[serde(rename = "Rejected")]
     Rejected,
@@ -11,10 +12,4 @@ pub enum GenericDeviceModelStatusEnumType {
     NotSupported,
     #[serde(rename = "EmptyResultSet")]
     EmptyResultSet,
-}
-
-impl Default for GenericDeviceModelStatusEnumType {
-    fn default() -> Self {
-        Self::Accepted
-    }
 }

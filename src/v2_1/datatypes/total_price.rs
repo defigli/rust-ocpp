@@ -116,6 +116,12 @@ impl TotalPriceType {
     }
 }
 
+impl Default for TotalPriceType {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

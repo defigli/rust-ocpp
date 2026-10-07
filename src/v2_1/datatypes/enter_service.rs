@@ -74,6 +74,7 @@ impl EnterServiceType {
     /// # Returns
     ///
     /// A new instance of `EnterServiceType` with optional fields set to `None`
+    #[allow(clippy::too_many_arguments)]
     pub fn new(
         priority: i32,
         high_voltage: Decimal,
